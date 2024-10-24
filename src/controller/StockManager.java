@@ -57,6 +57,11 @@ public class StockManager {
         return new ArrayList<>(stockDatabase.values());
     }
 
+    // Method to get all stocks
+    public Map<String, Stock> getAllStocks() {
+        return stockDatabase; // Return all stocks
+    }
+
     public void importStocksFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
