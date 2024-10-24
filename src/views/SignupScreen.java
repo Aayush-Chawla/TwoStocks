@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.*;
+
 import controller.StockManager;
 import model.User;
 
@@ -52,6 +53,24 @@ public class SignupScreen extends JFrame {
                 String username = userText.getText();
                 String password = new String(passwordText.getPassword());
 
+                // Validate input
+                if (username.isEmpty() || password.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Username and Password cannot be blank.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Check if username already exists
+                if (stockManager.userExists(username)) {
+                    JOptionPane.showMessageDialog(null, "Username already exists. Please choose another.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Validate password strength
+                if (!isValidPassword(password)) {
+                    JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 // Create and add new user
                 User newUser = new User(username, password);
                 stockManager.addUser(newUser);
@@ -62,4 +81,12 @@ public class SignupScreen extends JFrame {
             }
         });
     }
+
+    private boolean isValidPassword(String password) {
+        // Check for minimum length of 8 characters, at least one uppercase, one lowercase, one digit, and one special character
+        String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$";
+        return password.matches(passwordPattern);
+    }
+
 }
+

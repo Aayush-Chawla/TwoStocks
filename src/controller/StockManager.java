@@ -31,6 +31,15 @@ public class StockManager {
         users.add(user);
     }
 
+    public boolean userExists(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return true; // User exists
+            }
+        }
+        return false; // User does not exist
+    }
+
     public User getUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
