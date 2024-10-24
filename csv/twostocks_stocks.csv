@@ -1,0 +1,32 @@
+Symbol,Name,Price,Quantity
+AAPL,Apple Inc,150.00,1000
+MSFT,Microsoft Corporation,300.00,800
+GOOGL,Alphabet Inc,2800.00,500
+AMZN,Amazon.com Inc,3500.00,400
+TSLA,Tesla Inc,700.00,300
+FB,Meta Platforms Inc,350.00,450
+BRK.B,Berkshire Hathaway Inc,300.00,200
+NVDA,NVIDIA Corporation,250.00,600
+JPM,JPMorgan Chase & Co.,160.00,900
+V,Visa Inc,220.00,750
+JNJ,Johnson & Johnson,165.00,650
+PG,Procter & Gamble Co,140.00,550
+DIS,Walt Disney Co,180.00,300
+NFLX,Netflix Inc,500.00,250
+PYPL,PayPal Holdings Inc,260.00,400
+ADBE,Adobe Inc,600.00,200
+INTC,Intel Corporation,50.00,1000
+CSCO,Cisco Systems Inc,55.00,800
+PEP,PepsiCo Inc,150.00,700
+KO,Coca-Cola Company,60.00,900
+NKE,Nike Inc,170.00,600
+XOM,Exxon Mobil Corporation,60.00,500
+PFE,Pfizer Inc,45.00,850
+MRK,Merck & Co.,70.00,800
+ABT,Abbott Laboratories,120.00,600
+CMCSA,Comcast Corporation,50.00,700
+T,T-Mobile US Inc,150.00,400
+VZ,Verizon Communications Inc,60.00,750
+WMT,Walmart Inc,140.00,650
+NVS,Novartis AG,90.00,500
+TM,Toyota Motor Corporation,150.00,300
