@@ -169,6 +169,8 @@ import javax.swing.*;
 import controller.StockManager;
 import model.User;
 import model.Stock;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -196,16 +198,44 @@ public class StockManagementScreen extends JFrame {
     }
 
     private void placeComponents(JPanel panel) {
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new GridBagLayout()); // Use GridBagLayout for better centering
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = GridBagConstraints.RELATIVE; // Positioning vertically
+        gbc.insets = new java.awt.Insets(10, 0, 10, 0); // Add some padding between buttons
+        gbc.anchor = GridBagConstraints.CENTER; // Center alignment
 
         JButton addStockButton = new JButton("Add Stock");
         JButton buyButton = new JButton("Buy Stock");
         JButton sellButton = new JButton("Sell Stock");
         JButton viewPortfolioButton = new JButton("View Portfolio");
         JButton importStocksButton = new JButton("Import Stocks from CSV");
-        JButton showAllStocksButton = new JButton("All Stocks"); // New button
+        JButton showAllStocksButton = new JButton("All Stocks");
         JButton logoutButton = new JButton("Logout");
 
+        // Set button colors (background and text color)
+        addStockButton.setBackground(new java.awt.Color(102, 204, 255)); // Light blue
+        addStockButton.setForeground(java.awt.Color.BLACK);
+
+        buyButton.setBackground(new java.awt.Color(102, 255, 102)); // Light green
+        buyButton.setForeground(java.awt.Color.BLACK);
+
+        sellButton.setBackground(new java.awt.Color(255, 102, 102)); // Light red
+        sellButton.setForeground(java.awt.Color.BLACK);
+
+        viewPortfolioButton.setBackground(new java.awt.Color(102, 204, 255)); // Light blue
+        viewPortfolioButton.setForeground(java.awt.Color.BLACK);
+
+        importStocksButton.setBackground(new java.awt.Color(102, 204, 255)); // Light blue
+        importStocksButton.setForeground(java.awt.Color.BLACK);
+
+        showAllStocksButton.setBackground(new java.awt.Color(153, 204, 255)); // Light blue
+        showAllStocksButton.setForeground(java.awt.Color.BLACK);
+
+        logoutButton.setBackground(new java.awt.Color(192, 192, 192)); // Light gray
+        logoutButton.setForeground(java.awt.Color.BLACK);
+
+        // Action Listeners for buttons
         addStockButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 addStock();
@@ -238,25 +268,27 @@ public class StockManagementScreen extends JFrame {
 
         showAllStocksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                showAllStocks(); // Call to show all stocks
+                showAllStocks();
             }
         });
 
         logoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LoginScreen(stockManager);
-                dispose(); // Close stock management screen
+                dispose();
             }
         });
 
-        panel.add(addStockButton);
-        panel.add(buyButton);
-        panel.add(sellButton);
-        panel.add(viewPortfolioButton);
-        panel.add(importStocksButton);
-        panel.add(showAllStocksButton); // Adding the new button to the panel
-        panel.add(logoutButton);
+        // Add buttons to the panel with layout constraints
+        panel.add(addStockButton, gbc);
+        panel.add(buyButton, gbc);
+        panel.add(sellButton, gbc);
+        panel.add(viewPortfolioButton, gbc);
+        panel.add(importStocksButton, gbc);
+        panel.add(showAllStocksButton, gbc);
+        panel.add(logoutButton, gbc);
     }
+
 
     private void addStock() {
         String symbol = JOptionPane.showInputDialog("Enter Stock Symbol:");
